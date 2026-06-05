@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brittney Sneed — Content Strategy & Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0F0F0F;
+    --paper: #F8F5F0;
+    --cream: #EDE8DF;
+    --accent: #C8402F;
+    --accent2: #2B4C7E;
+    --muted: #6B6560;
+    --rule: #D4CFC7;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 3rem;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    backdrop-filter: blur(8px);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 5rem;
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 3rem 4rem 5rem;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 6vw, 6rem);
+    font-weight: 900;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .hero-name span { display: block; }
+  .hero-name .last { color: var(--accent); }
+
+  .hero-tagline {
+    font-size: 1.1rem;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 420px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .tag {
+    border: 1px solid var(--rule);
+    padding: 0.35rem 0.9rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.85rem 2rem;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--accent); }
+
+  .btn-secondary {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .btn-secondary:hover { color: var(--accent); border-color: var(--accent); }
+
+  .hero-visual {
+    background: var(--ink);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-visual::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -30%;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: rgba(200, 64, 47, 0.08);
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5px;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .stat-card {
+    background: #141414;
+    padding: 2.5rem 2rem;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-num .stat-accent { color: var(--accent); }
+
+  .stat-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* SECTION SHARED */
+  section {
+    padding: 6rem 5rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 1.5rem;
+  }
+
+  .section-num {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+  }
+
+  /* ABOUT */
+  .about {
+    background: var(--cream);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .about-intro {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.55rem;
+    line-height: 1.55;
+    font-weight: 400;
+    color: var(--ink);
+  }
+
+  .about-intro em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .about-body {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-top: 1.5rem;
+  }
+
+  .about-sidebar {}
+
+  .about-sidebar h3 {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .competency-list {
+    list-style: none;
+    margin-bottom: 2.5rem;
+  }
+
+  .competency-list li {
+    font-size: 0.9rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .competency-list li::before {
+    content: '—';
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* WORK */
+  .work {}
+
+  .work-grid {
+    display: grid;
+    gap: 0;
+  }
+
+  .work-item {
+    display: grid;
+    grid-template-columns: 0.6fr 1fr;
+    border-top: 1px solid var(--rule);
+    padding: 3rem 0;
+    gap: 4rem;
+    align-items: start;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .work-item:hover {
+    background: var(--cream);
+    margin: 0 -5rem;
+    padding: 3rem 5rem;
+  }
+
+  .work-item-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .work-org {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .work-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .work-year {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 0.25rem;
+  }
+
+  .work-content {}
+
+  .work-challenge {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .work-desc {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+
+  .work-results {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .result {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .result-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .result-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  .work-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
+
+  .work-tag {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.3rem 0.75rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* SOCIAL WORK */
+  .social-work {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .social-work .section-title { color: var(--paper); }
+  .social-work .section-num { color: var(--accent); }
+  .social-work .section-header { border-color: rgba(255,255,255,0.1); }
+
+  .platform-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .platform-card {
+    background: #111;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .platform-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 3px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .platform-card.linkedin::after { background: #0A66C2; }
+  .platform-card.instagram::after { background: linear-gradient(90deg, #E1306C, #F77737); }
+  .platform-card.tiktok::after { background: #69C9D0; }
+
+  .platform-card:hover::after { transform: scaleX(1); }
+
+  .platform-icon {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .platform-name {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .platform-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+
+  .platform-desc {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 1.5rem;
+  }
+
+  .platform-goal {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.5;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .platform-goal strong {
+    color: rgba(255,255,255,0.6);
+    display: block;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  /* WRITING */
+  .writing {
+    background: var(--cream);
+  }
+
+  .writing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+    background: var(--rule);
+  }
+
+  .writing-card {
+    background: var(--paper);
+    padding: 3rem;
+  }
+
+  .writing-card-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .writing-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+  }
+
+  .writing-card-subtitle {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 1.25rem;
+  }
+
+  .writing-card-excerpt {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: var(--muted);
+  }
+
+  /* CONTACT */
+  .contact {
+    background: var(--ink);
+    color: var(--paper);
+    text-align: center;
+    padding: 8rem 5rem;
+  }
+
+  .contact-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 3rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  .contact-links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .contact-link {
+    color: var(--paper);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 2px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .contact-link:hover { color: var(--accent); border-color: var(--accent); }
+
+  .contact-specs {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ANIMATIONS */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 1.5rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    background: #0a0a0a;
+  }
+
+  footer span {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-text { padding: 6rem 1.5rem 3rem; }
+    .hero-visual { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .work-item { grid-template-columns: 1fr; gap: 1.5rem; }
+    .work-item:hover { margin: 0 -1.5rem; padding: 3rem 1.5rem; }
+    .platform-grid { grid-template-columns: 1fr; }
+    .writing-grid { grid-template-columns: 1fr; }
+    .contact { padding: 5rem 1.5rem; }
+    footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Brittney Sneed</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#social">Social</a></li>
+    <li><a href="#writing">Writing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Brand Content Strategist</p>
+    <h1 class="hero-name">
+      <span>Brittney</span>
+      <span class="last">Sneed.</span>
+    </h1>
+    <p class="hero-tagline">Strategy that moves people. Content that builds loyalty. 10+ years turning complex audience problems into human-centered communication systems.</p>
+    <div class="hero-tags">
+      <span class="tag">Lifecycle Marketing</span>
+      <span class="tag">Brand Voice</span>
+      <span class="tag">Campaign Architecture</span>
+      <span class="tag">Community Strategy</span>
+      <span class="tag">Social Content</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#work" class="btn-primary">View My Work</a>
+      <a href="#contact" class="btn-secondary">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-num">10<span class="stat-accent">+</span></div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num"><span class="stat-accent">30</span>%</div>
+        <div class="stat-label">Audience Growth</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num"><span class="stat-accent">0</span></div>
+        <div class="stat-label">Compliance Violations</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">25<span class="stat-accent">%</span></div>
+        <div class="stat-label">Faster Production</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">The Strategist</h2>
+  </div>
+  <div class="about-grid">
+    <div>
+      <p class="about-intro">A content strategist who thinks <em>in systems</em> and writes with humanity.</p>
+      <p class="about-body">I specialize in helping brands close the gap between what they offer and how their audience actually experiences that value. My work sits at the intersection of content strategy, audience psychology, and brand voice — translating complex ideas into communication that feels personal, trustworthy, and human.</p>
+      <p class="about-body">I don't just write content. I design the systems that make content work. From 10 years building community strategy at AARP to lifecycle campaign leadership at PenFed Credit Union, I've delivered results across regulated environments, mission-driven organizations, and consumer-facing brands.</p>
+    </div>
+    <div class="about-sidebar">
+      <h3>Core Competencies</h3>
+      <ul class="competency-list">
+        <li>Campaign Strategy &amp; Planning</li>
+        <li>Brand Voice &amp; Tone Development</li>
+        <li>Lifecycle Design &amp; Automation</li>
+        <li>Audience Engagement &amp; Retention</li>
+        <li>Community Strategy &amp; Management</li>
+        <li>Cross-Functional Team Leadership</li>
+        <li>Content Governance Frameworks</li>
+        <li>Omnichannel Execution</li>
+        <li>Performance Analytics</li>
+        <li>Budget &amp; Vendor Management</li>
+      </ul>
+      <h3>Currently</h3>
+      <ul class="competency-list">
+        <li>Loyalty Program Manager — PenFed</li>
+        <li>Washington, DC (Hybrid)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="work" id="work">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Selected Work</h2>
+  </div>
+
+  <div class="work-grid">
+
+    <!-- PenFed Loyalty -->
+    <div class="work-item fade-in">
+      <div class="work-item-meta">
+        <span class="work-org">PenFed Credit Union</span>
+        <h3 class="work-title">Loyalty Content Strategy Overhaul</h3>
+        <span class="work-year">2025</span>
+      </div>
+      <div class="work-content">
+        <p class="work-challenge">Challenge</p>
+        <p class="work-desc">Designed a behavior-first loyalty strategy spanning 3 personas, 13 touchpoints, and 4 channels — without complete transaction data for traditional segmentation. Reframed tax season from a transaction moment to a decision moment, enabling full member coverage without assumptions.</p>
+        <div class="work-results">
+          <div class="result">
+            <span class="result-val">3</span>
+            <span class="result-label">Personas Built</span>
+          </div>
+          <div class="result">
+            <span class="result-val">13</span>
+            <span class="result-label">Touchpoints Mapped</span>
+          </div>
+          <div class="result">
+            <span class="result-val">4</span>
+            <span class="result-label">Channels Orchestrated</span>
+          </div>
+        </div>
+        <div class="work-tags">
+          <span class="work-tag">Lifecycle Design</span>
+          <span class="work-tag">Persona Strategy</span>
+          <span class="work-tag">Behavioral Targeting</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PenFed Holidays -->
+    <div class="work-item fade-in">
+      <div class="work-item-meta">
+        <span class="work-org">PenFed Credit Union</span>
+        <h3 class="work-title">Home for the Holidays Campaign</h3>
+        <span class="work-year">Nov–Dec 2024</span>
+      </div>
+      <div class="work-content">
+        <p class="work-challenge">Challenge</p>
+        <p class="work-desc">Full-funnel mortgage engagement campaign replacing promotional urgency with emotional reassurance. Integrated email storytelling, in-app nudges, and social humanization into one connected experience — while positioning against Rocket Mortgage, BofA, and Navy Federal on an emotional trust angle.</p>
+        <div class="work-results">
+          <div class="result">
+            <span class="result-val">+15%</span>
+            <span class="result-label">Engagement Target</span>
+          </div>
+          <div class="result">
+            <span class="result-val">+10%</span>
+            <span class="result-label">Conversion Target</span>
+          </div>
+          <div class="result">
+            <span class="result-val">−25%</span>
+            <span class="result-label">Send Volume</span>
+          </div>
+        </div>
+        <div class="work-tags">
+          <span class="work-tag">Campaign Architecture</span>
+          <span class="work-tag">Email Strategy</span>
+          <span class="work-tag">Emotional Storytelling</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PenFed Audit -->
+    <div class="work-item fade-in">
+      <div class="work-item-meta">
+        <span class="work-org">PenFed Credit Union</span>
+        <h3 class="work-title">Communications Audit &amp; Strategic Diagnosis</h3>
+        <span class="work-year">2024</span>
+      </div>
+      <div class="work-content">
+        <p class="work-challenge">Challenge</p>
+        <p class="work-desc">The organization had strong products and a loyal audience — but communications that felt institutional, not relational. Delivered a full strategic audit diagnosing 6 core gaps (tone, lifecycle automation, loyalty storytelling, behavioral triggers, design consistency, member feedback) with a prioritized roadmap. The key insight: the gap wasn't trust — it was communication.</p>
+        <div class="work-results">
+          <div class="result">
+            <span class="result-val">6</span>
+            <span class="result-label">Gaps Identified</span>
+          </div>
+          <div class="result">
+            <span class="result-val">1</span>
+            <span class="result-label">Unified Roadmap</span>
+          </div>
+        </div>
+        <div class="work-tags">
+          <span class="work-tag">Audit &amp; Diagnosis</span>
+          <span class="work-tag">Brand Voice</span>
+          <span class="work-tag">Strategic Planning</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- AARP -->
+    <div class="work-item fade-in">
+      <div class="work-item-meta">
+        <span class="work-org">AARP</span>
+        <h3 class="work-title">Community Guidelines Redesign</h3>
+        <span class="work-year">2014–2024</span>
+      </div>
+      <div class="work-content">
+        <p class="work-challenge">Challenge</p>
+        <p class="work-desc">Transformed dense, institutional community policy into a scannable, member-friendly digital resource that reduced onboarding friction and improved community behavior. Led 10 years of digital community strategy for a high-traffic platform serving millions, growing active participation through strategic campaign programming and partnership activations.</p>
+        <div class="work-results">
+          <div class="result">
+            <span class="result-val">~30%</span>
+            <span class="result-label">Audience Growth</span>
+          </div>
+          <div class="result">
+            <span class="result-val">25–30%</span>
+            <span class="result-label">Faster Production</span>
+          </div>
+        </div>
+        <div class="work-tags">
+          <span class="work-tag">Community Strategy</span>
+          <span class="work-tag">Content Governance</span>
+          <span class="work-tag">UX Writing</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SOCIAL -->
+<section class="social-work" id="social">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Platform Content</h2>
+  </div>
+  <div class="platform-grid">
+    <div class="platform-card linkedin">
+      <div class="platform-icon">in</div>
+      <div class="platform-name">LinkedIn · Thought Leadership</div>
+      <div class="platform-title">Care is more than treatment. It's the entire experience families navigate.</div>
+      <div class="platform-desc">Positioned Catalight as a systems-level thought leader for a professional audience, moving the conversation beyond clinical outcomes to the full family experience — appointments, insurance, school meetings, and the mental load that comes with all of it.</div>
+      <div class="platform-goal">
+        <strong>Strategy + Goal</strong>
+        Position Catalight as a systems-level thought leader that understands the full family experience, not just the clinical piece.
+      </div>
+    </div>
+    <div class="platform-card instagram">
+      <div class="platform-icon">◎</div>
+      <div class="platform-name">Instagram · Community Connection</div>
+      <div class="platform-title">The daily reality of caregiving often looks like this.</div>
+      <div class="platform-desc">Built emotional connection with caregivers by acknowledging the unseen, everyday moments that shape their lives — rescheduling plans, research at midnight, celebrating small wins, running on empty but showing up anyway. Visual storytelling that makes people feel seen.</div>
+      <div class="platform-goal">
+        <strong>Strategy + Goal</strong>
+        Build emotional connection with caregivers by acknowledging the unseen, everyday moments that impact their lives.
+      </div>
+    </div>
+    <div class="platform-card tiktok">
+      <div class="platform-icon">♪</div>
+      <div class="platform-name">TikTok · Short-Form Education</div>
+      <div class="platform-title">3 things I wish every parent knew about getting an evaluation.</div>
+      <div class="platform-desc">Introduced Catalight to new audiences through relatable, bite-sized education delivered in a creator-native format. Empowering messaging (You know your child best. You're allowed to ask questions. You deserve clear answers.) that drives awareness and trust on emerging platforms.</div>
+      <div class="platform-goal">
+        <strong>Strategy + Goal</strong>
+        Introduce Catalight to new audiences through relatable, bite-sized education that drives awareness and trust on emerging platforms.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WRITING -->
+<section class="writing" id="writing">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Writing Samples</h2>
+  </div>
+  <div class="writing-grid">
+    <div class="writing-card">
+      <div class="writing-card-label">Long-Form · Catalight</div>
+      <h3 class="writing-card-title">The Invisible Work of Caregiving</h3>
+      <p class="writing-card-subtitle">The emotional labor families carry behind the scenes</p>
+      <p class="writing-card-excerpt">There's a version of caregiving most people never see. It happens quietly — in parked cars between appointments, in half-finished cups of coffee reheated three times, in browser tabs left open overnight because someone was too tired to finish reading. Written to make caregivers feel understood, not just informed.</p>
+    </div>
+    <div class="writing-card">
+      <div class="writing-card-label">Thought Leadership · Catalight</div>
+      <h3 class="writing-card-title">Why the Autism Care System Wasn't Built for Modern Families</h3>
+      <p class="writing-card-subtitle">How fragmented systems create invisible pressure on caregivers</p>
+      <p class="writing-card-excerpt">The modern family is expected to navigate autism care like a full-time operations team. This piece argues that human-centered care isn't softer language or better branding — it's the recognition that emotional experience is part of caregiving. Clear communication and accessible education are now expectations, not extras.</p>
+    </div>
+    <div class="writing-card">
+      <div class="writing-card-label">Long-Form Education · PenFed</div>
+      <h3 class="writing-card-title">PenFed vs. Dealership Financing</h3>
+      <p class="writing-card-subtitle">Audience guide for a high-stakes purchase decision</p>
+      <p class="writing-card-excerpt">A 900-word audience guide positioning a smarter approach to auto financing. Written to build confidence and reduce friction — not to sell, but to serve. Tone: clear, empowering, jargon-free. Demonstrates ability to translate complex financial products into content that earns trust.</p>
+    </div>
+    <div class="writing-card">
+      <div class="writing-card-label">Member Newsletter · PenFed</div>
+      <h3 class="writing-card-title">Fraud Awareness: Remote Access Scams</h3>
+      <p class="writing-card-subtitle">Protective awareness that reads like a trusted friend</p>
+      <p class="writing-card-excerpt">A fraud awareness newsletter that uses urgency without fear, clarity without condescension. Reads like a trusted friend warning you — not a legal notice. Subject line: "Remote access? Not so fast." Demonstrates range across format, audience, and emotional register.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <p class="contact-eyebrow">Let's Work Together</p>
+  <h2 class="contact-headline">Strategy that moves people.<br>Content that builds loyalty.</h2>
+  <p class="contact-sub">Available for contract, consulting, and full-time roles in content strategy and brand communications.</p>
+  <div class="contact-links">
+    <a href="mailto:BrittneyA.Sneed@gmail.com" class="contact-link">BrittneyA.Sneed@gmail.com</a>
+    <a href="tel:2272511976" class="contact-link">227-251-1976</a>
+  </div>
+  <p class="contact-specs">Washington, DC &nbsp;·&nbsp; Content Strategy &nbsp;·&nbsp; Social &nbsp;·&nbsp; Community</p>
+</section>
+
+<footer>
+  <span>© 2025 Brittney Sneed</span>
+  <span>Washington, DC</span>
+</footer>
+
+<script>
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
