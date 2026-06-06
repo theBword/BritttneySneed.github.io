@@ -1,1 +1,1 @@
-# BritttneySneed.github.io
+# BrittneySneed.github.io
